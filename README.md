@@ -1,6 +1,6 @@
 ﻿# EasyReforge-Next
 
-This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).
+This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).<BR>
 本プロジェクトはZuntan03氏の[EasyReforge](https://github.com/Zuntan03/EasyReforge)をベースにしたforkです。
 
 ## オリジナルのEasyReforgeからの変更点
@@ -29,16 +29,18 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 ## オリジナルのEasyReforgeからの移行
 
-現時点ではオリジナルのEasyReforgeからの移行はサポートしていませんが、ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
-使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
+現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。
+- ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
+- 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
+
 今後、[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
 
 ## 連絡
 
-このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。
-Zuntan03氏や元のEasyReforgeへの問い合わせは絶対におやめください。
+このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。<BR>
+Zuntan03氏やオリジナルのEasyReforgeへの問い合わせは絶対におやめください。
 
-以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。
+以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。<BR>
 問題が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
 
 ---
