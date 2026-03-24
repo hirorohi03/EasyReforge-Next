@@ -69,4 +69,7 @@ if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 echo xcopy /SQY %~dp0src\stable-diffusion-webui-reForge\*.* .\
 xcopy /SQY %~dp0src\stable-diffusion-webui-reForge\*.* .\
 
+echo xcopy /SQY %~dp0src\sd-webui-forge-neo\*.* .\
+xcopy /SQY %~dp0src\sd-webui-forge-neo\*.* .\
+
 popd

@@ -16,12 +16,13 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 	- model-keyword
 	- sd-webui-cutoff
 	- sd-webui-enable-checker
+- [Spectrum](https://github.com/hanjq17/Spectrum)の[Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)での実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの一時的な措置）
+- 標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）
 - reForge本体のソースコードパッチによるControlNet Preprocessorの削除
     - inpaint_only_noobai_xl+lama
 	- inpaint_only_noobai_xl
 - ローカル LLM チャット (llama.cpp) の削除
 - A1111, Forge等の不要と思われる機能やファイルの削除
-- 標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）
 
 ## インストール方法
 
