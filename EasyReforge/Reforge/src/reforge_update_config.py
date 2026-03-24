@@ -87,12 +87,12 @@ class ReforgeConfig:
         cfg["ad_bbox_sortby"] = "Area (large to small)"
 
     def update_0_1_0(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.1"
+        cfg["easy_reforge_config_version"] = "0.1.2"
 
         cfg["disable_weights_auto_swap"] = False
 
     def update_0_1_2(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.3"
+        cfg["easy_reforge_config_version"] = "0.1.4"
 
         cfg["bilingual_localization_file"] = "ja_JP"
 
