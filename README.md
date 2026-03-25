@@ -22,7 +22,8 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 	- sd-webui-cutoff
 	- sd-webui-enable-checker
 - [Spectrum](https://github.com/hanjq17/Spectrum)の[Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)での実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）
-- 標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）
+- ~~標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）~~
+    - 環境によっては黒画像が生成されてしまうという報告があったためオプションは削除しました。
 - reForge本体のソースコードパッチによるControlNet Preprocessorの削除
     - inpaint_only_noobai_xl+lama
 	- inpaint_only_noobai_xl
@@ -31,7 +32,30 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 ## インストール方法
 
-[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存します。以降は[オリジナルのEasyReforgeの手順](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95-1)と同じです。
+1.  [EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat?ver=1) を右クリックから保存します。
+	- NVIDIA GPU の Windows PC、20GB 以上の空きストレージ、PC の管理者権限、アバストなどの Windows Diffender でないウィルスチェック無効化、VPN の無効化が必要です。
+2. `C:/EasyReforge/` などの浅いパスのインストール先の **空フォルダ** で、`EasyReforgeInstaller.bat` をダブルクリックして実行します。
+	- **`WindowsによってPCが保護されました` と表示されたら、`詳細表示` から `実行` します。**
+3. `動作に必要なモデルなどをダウンロードします。よろしいですか？ [y/n]（空欄なら y）` で `Enter` します。
+4. インストール先の `EasyReforge/vc_redist.x64.exe` で、`Microsoft Visual C++ Redistributable` をインストールします。
+
+## 起動方法
+
+EasyReforge-Next インストール先にある以下いずれかのバッチを実行することでreForgeが起動します。
+- `Reforge.bat`：起動オプションなしの標準設定で起動します。
+- `Reforge_Fast.bat`：sageattention等を有効にして起動します。画像生成時間が約10%削減します。ただし環境によっては黒画像しか生成されなくなる場合がありますので、その場合は `Reforge.bat` を使用してください。
+- 自作バッチ：自分で自由に起動オプションを指定したい場合は、`Reforge_Fast.bat` を任意のファイル名でコピーして、ファイルの内容を書き換えて利用してください。コピーせずに既存のファイルの内容を書き換えて利用すると、EasyReforge-Next の更新時に巻き戻ってしまいます。<br>
+※ 参考ですが、--allow-fp16-accumulation オプションで計算精度を低くして生成時間を約10%削減することも可能です（sageattentionとの合計て約20%削減）。
+
+## 更新方法
+
+- **`Update.bat` で EasyReforge-Next を更新します。**
+	- 更新で問題が発生したら『[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)』へ。
+- `Update.bat` 実行時、赤い文字で以下のエラーメッセージが出力されますがとりあえず無視してください。<br>
+`ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.`<br>
+`tensorflow 2.21.0 requires protobuf<8.0.0,>=6.31.1, but you have protobuf 3.20.0 which is incompatible.`<br>
+※ `protobuf` というライブラリについて、WD14-Taggerが前提とするバージョンよりもreForgeの前提が低いことが原因です。本家reForgeでも抱えている問題ですが、WD14-Taggerの動作には問題ないはずです。<br>
+EasyReforgeではreForgeのファイルを差し替えて `protobuf` のバージョンを上げることで対策していましたが、EasyReforge-Nextの対策方法は検討中です。
 
 ## オリジナルのEasyReforgeからのアップデートや移行について
 
@@ -55,6 +79,15 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 このforkについてわからないことや不具合や要望がありましたら、[@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。<BR>
 オリジナルのEasyReforgeならびに開発者のZuntan03氏、またreForge本体ならびに開発者のPanchovix氏への問い合わせは絶対におやめください。
 
+## 最近の更新内容
+
+- **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
+
+### 2026/03/26
+
+- 環境によってはsageattention有効時に黒画像しか生成されないという報告があったため、`Reforge.bat` の起動オプションを削除しました。sageattentionを有効にしたい場合は `Reforge_Fast.bat` を使用するか、 [起動方法](https://github.com/hirorohi03/EasyReforge/#起動方法)を参考に、ご自身で起動バッチを作成して使用してください。
+
+---
 以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。<BR>
 インストールバッチなど混同が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
 
