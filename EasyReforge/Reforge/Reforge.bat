@@ -15,8 +15,8 @@ pushd %~dp0..\..\stable-diffusion-webui-reForge
 call %EASY_TOOLS%\Python\Python_Activate.bat
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-echo python -m pip install -qq -U pip setuptools wheel
-python -m pip install -qq -U pip setuptools wheel
+echo python -m pip install -qq -U pip setuptools==69.5.1 wheel
+python -m pip install -qq -U pip setuptools==69.5.1 wheel
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 @REM https://github.com/woct0rdho/SageAttention/releases
