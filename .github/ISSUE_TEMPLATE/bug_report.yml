@@ -19,20 +19,21 @@ body:
       description: |
         Please perform basic debugging to see if your environment or configuration is the cause of the issue.（環境や設定に問題がないか確認するため、基本的なデバッグを行ってください）
       options:
-        - label: The issue exists after disabling all extensions.（この問題は、EasyReforge-Nextのクリーンインストール環境でも発生します。）
-        - label: The issue exists in the current version of EasyReforge-Next.（この問題は、EasyReforge-Nextの現行バージョンでも発生します。）
-        - label: The issue has not been reported before.（この問題は、これまで報告されたことがありません。）
+        - label: The issue exists after disabling all extensions.（この問題はEasyReforge-Nextのクリーンインストール環境でも発生します。）
+        - label: The issue exists in the current version of EasyReforge-Next.（この問題はEasyReforge-Nextの現行バージョンでも発生します。）
+        - label: The issue has not been reported before.（この問題はこれまで報告されたことがありません。）
   - type: markdown
     attributes:
       value: |
-        > Please fill this form with as much information as possible. Don't forget to "Upload Sysinfo" and "What browsers" and provide screenshots if possible.
-        > このフォームには、できるだけ多くの情報をご記入ください。「Sysinfoのアップロード」と「使用しているブラウザ」の項目を忘れずに入力し、可能であればスクリーンショットも添付してください
+        > Please fill this form with as much information as possible. Don't forget to "Sysinfo" and "Your web browser" and provide screenshots if possible.
+        > このフォームにはできるだけ多くの情報をご記入ください。「Sysinfo」と「ご利用のWebブラウザ」の項目を忘れずに入力し、可能であればスクリーンショットも添付してください。
   - type: textarea
     id: what-did
     attributes:
       label: What happened ?（何が起こったのですか？）
       placeholder: |
-        Tell us what happened in a very clear and simple way.（何が起こったのか、できるだけわかりやすく簡潔に教えてください。）
+        Tell us what happened in a very clear and simple way.
+        何が起こったのか、できるだけわかりやすく簡潔に教えてください。
     validations:
       required: true
   - type: textarea
@@ -50,7 +51,8 @@ body:
     attributes:
       label: Expected behavior（期待される動作）
       placeholder: |
-        Tell us what you think the normal behavior should be.（正常な動作はどうあるべきかお聞かせください。）
+        Tell us what you think the normal behavior should be.
+        正常な動作はどうあるべきかお聞かせください。
     validations:
       required: true
   - type: dropdown
@@ -73,8 +75,10 @@ body:
       description: Drag the sysinfo file into the field to upload it. If you submit your report without including the sysinfo file, the report will be closed.（sysinfoファイルをフィールドにドラッグしてアップロードしてください。sysinfoファイルを添付せずにレポートを送信すると、レポートは閉じられます。）
       placeholder: |
         1. Go to WebUI Settings -> Sysinfo -> Download system info.
-            If WebUI fails to launch, use --dump-sysinfo commandline argument to generate the file.（WebUI が起動しない場合は、--dump-sysinfo コマンドライン引数を使用してファイルを生成してください。）
-        2. Upload the Sysinfo as a attached file, Do NOT paste it in as plain text.（Sysinfoを添付ファイルとしてアップロードしてください。プレーンテキストとして貼り付けないでください。）
+            If WebUI fails to launch, use --dump-sysinfo commandline argument to generate the file.
+            WebUI が起動しない場合は、--dump-sysinfo コマンドライン引数を使用してファイルを生成してください。
+        2. Upload the Sysinfo as a attached file, Do NOT paste it in as plain text.
+            Sysinfoを添付ファイルとしてアップロードしてください。プレーンテキストとして貼り付けないでください。
     validations:
       required: true
   - type: textarea

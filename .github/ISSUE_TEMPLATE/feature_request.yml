@@ -15,13 +15,14 @@ body:
     attributes:
       value: |
         > Please fill this form with as much information as possible, provide screenshots and/or illustrations of the feature if possible.
-        > このフォームにはできるだけ多くの情報を記入してください。また、可能であれば、その機能のスクリーンショットや図解を添付してください。
+        > このフォームにはできるだけ多くの情報を記入してください。また、可能であればその機能のスクリーンショットや図解を添付してください。
   - type: textarea
     id: feature
     attributes:
       label: What would your feature do ?（その機能はどのような働きをするのでしょうか？）
       placeholder: |
-        Tell us about your feature in a very clear and simple way, and what problem it would solve.（その機能について、できるだけわかりやすく簡潔に説明してください。また、それがどのような問題を解決するのかについても教えてください。）
+        Tell us about your feature in a very clear and simple way, and what problem it would solve.
+        その機能について、できるだけわかりやすく簡潔に説明してください。また、それがどのような問題を解決するのかについても教えてください。
     validations:
       required: true
   - type: textarea
@@ -29,7 +30,8 @@ body:
     attributes:
       label: Scenario when this would be used（この機能が使用される場面）
       placeholder: |
-        What is the scenario this would be used in? Why is this important to users.（これはどのような場面で活用されるのでしょうか？また、ユーザーにとってなぜ重要なのでしょうか。）
+        What is the scenario this would be used in? Why is this important to users.
+        これはどのような場面で活用されるのでしょうか？また、ユーザーにとってなぜ重要なのでしょうか。
     validations:
       required: true
   - type: textarea
