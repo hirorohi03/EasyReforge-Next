@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Q&A
+    url: https://github.com/hirorohi03/EasyReforge/discussions
+    about: Please question and answer here.
+
+# Issue作成時のテンプレート設定
+defaults:
+  - template: "bug_report.yml"
+    name: "Bug report（バグ報告）"
+    about: "Create a report to help us improve（改善に役立てるためのレポートを作成する）"
+  - template: "feature_request.yml"
+    name: "Feature request（新機能リクエスト）"
+    about: "Suggest an idea for this project（このプロジェクトへのアイデアを提案する）"
