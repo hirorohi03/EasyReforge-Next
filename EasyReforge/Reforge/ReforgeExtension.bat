@@ -101,6 +101,10 @@ if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 call %GITHUB_CLONE_OR_PULL% shirayu sd-webui-enable-checker
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
+@REM https://github.com/hirorohi03/sd-webui-forge-spectrum
+call %GITHUB_CLONE_OR_PULL% hirorohi03 sd-webui-forge-spectrum
+if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
+
 popd rem %~dp0..\..\stable-diffusion-webui-reForge\extensions
 exit /b 0
 
