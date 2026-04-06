@@ -74,7 +74,11 @@ call %GITHUB_CLONE_OR_PULL% zixaphir Stable-Diffusion-Webui-Civitai-Helper
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 @REM https://github.com/67372a/stable-diffusion-webui-wd14-tagger
-call %GITHUB_CLONE_OR_PULL% 67372a stable-diffusion-webui-wd14-tagger
+@REM call %GITHUB_CLONE_OR_PULL% 67372a stable-diffusion-webui-wd14-tagger
+@REM if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
+
+@REM https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger
+call %GITHUB_CLONE_OR_PULL% hirorohi03 stable-diffusion-webui-wd14-tagger
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 @REM https://github.com/KohakuBlueleaf/z-tipo-extension
