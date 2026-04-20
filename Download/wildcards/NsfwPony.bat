@@ -4,7 +4,7 @@ set EASY_TOOLS=%~dp0..\..\EasyTools
 set CIVITAI_MODEL_UNZIP=%EASY_TOOLS%\Download\CivitaiModelUnzip.bat
 pushd %~dp0..\..\Model\wildcards
 
-@REM https://civitai.com/models/438104?modelVersionId=505027
+@REM https://civitai.red/models/438104?modelVersionId=505027
 call %CIVITAI_MODEL_UNZIP% .\ NsfwPony 438104 505027
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
