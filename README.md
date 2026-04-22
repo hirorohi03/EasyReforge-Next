@@ -94,18 +94,19 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
-### 2026/4/6
+### 2026/4/20
 
-<<<<<<< HEAD
-- [追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。
-	- 2026/4/22追記：APIアクセスは .com でもすべてのコンテンツにアクセスできるため変更不要でした。戻すのは面倒で支障もないので .red のままにしておきます。
+- ~~[追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。~~
+	- **2026/4/22：API経由の場合は従来のcivitai.comでも全コンテンツにアクセス可能であることが判明したためこの変更は取り消しました。**
 - Civitai から削除されているモデルのダウンロードバッチを削除しました。
 	- Download\Lora\Illu_Char\Takopī_no_Genzai.bat
 	- [Download\Lora\NoobE_Char\Medalist_v10.bat](https://civarchive.com/models/1198597?modelVersionId=1349662)
 	- [Download\Lora\NoobE_Style\DoujinshiBooba.bat](https://civarchive.com/models/142674)
 	- [Download\Stable-diffusion\NoobE\plumMix_v10.bat](https://civarchive.com/models/1575671?modelVersionId=1783043)
 	- [Download\VAE\Sdxl\AaaAnime_v15.bat](https://civarchive.com/models/888145?modelVersionId=1042046)
-=======
+
+### 2026/4/6
+
 - 既存の `wd14-tagger` は、`protobuf` というPythonライブラリに対するバージョン要求がreForgeの要求と不整合になっており、`Update.bat` 実行時などにエラーメッセージが出力されていたため、hirorohi03が修正した [`wd14-tagger`](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更しました。
 	- 既に不整合になっているPythonライブラリは自動で回復しませんので、[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)に記載のとおり、`venv` を削除＆再作成してください。
 	- `venv` は7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に `Update.bat` を実行してください。
@@ -114,7 +115,6 @@ pip uninstall deepdanbooru
 pip uninstall tensorflow
 pip uninstall opencv_python_headless
 ```
->>>>>>> parent of 75fb38c (civitai.com to civitai.red)
 
 ### 2026/4/5
 
