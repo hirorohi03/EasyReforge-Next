@@ -4,7 +4,7 @@ set EASY_TOOLS=%~dp0..\..\..\EasyTools
 set CIVITAI_MODEL_UNZIP=%EASY_TOOLS%\Download\CivitaiModelUnzip.bat
 pushd %~dp0..\..\..\Model\adetailer
 
-@REM https://civitai.red/models/334668?modelVersionId=465360
+@REM https://civitai.com/models/334668?modelVersionId=465360
 call %CIVITAI_MODEL_UNZIP% segm\ PitEyeDetailer-v2-seg.pt 334668 465360
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 

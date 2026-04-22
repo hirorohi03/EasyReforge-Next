@@ -4,31 +4,31 @@ set EASY_TOOLS=%~dp0..\..\EasyTools
 set CIVITAI_MODEL_UNZIP=%EASY_TOOLS%\Download\CivitaiModelUnzip.bat
 pushd %~dp0..\..\Model\wildcards
 
-@REM https://civitai.red/models/70930?modelVersionId=75621
+@REM https://civitai.com/models/70930?modelVersionId=75621
 call %CIVITAI_MODEL_UNZIP% Advanced\ 50s-locations.txt 70930 75621
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/91214?modelVersionId=97211
+@REM https://civitai.com/models/91214?modelVersionId=97211
 call %CIVITAI_MODEL_UNZIP% Advanced\ female-artisans.txt 91214 97211
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/75246?modelVersionId=79987
+@REM https://civitai.com/models/75246?modelVersionId=79987
 call %CIVITAI_MODEL_UNZIP% Advanced\ female-guerilla-fighters.txt 75246 79987
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/76968?modelVersionId=81762
+@REM https://civitai.com/models/76968?modelVersionId=81762
 call %CIVITAI_MODEL_UNZIP% Advanced\ maid-dresses-locations.txt 76968 81762
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/70264?modelVersionId=74962
+@REM https://civitai.com/models/70264?modelVersionId=74962
 call %CIVITAI_MODEL_UNZIP% Advanced\ post-apocalyptic-locations.txt 70264 74962
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/70905?modelVersionId=75600
+@REM https://civitai.com/models/70905?modelVersionId=75600
 call %CIVITAI_MODEL_UNZIP% Advanced\ science-fiction-locations.txt 70905 75600
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
-@REM https://civitai.red/models/69537?modelVersionId=74201
+@REM https://civitai.com/models/69537?modelVersionId=74201
 call %CIVITAI_MODEL_UNZIP% Advanced\ WWII-locations.txt 69537 74201
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 

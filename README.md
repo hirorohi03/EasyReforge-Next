@@ -16,15 +16,17 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 - Potable Gitを2.48.1から2.53.0.2にアップデート
 - Pyhton (venv) を3.10.6から3.10.11にアップデート
 - PyTorchを2.7.1から2.9.1にアップデート, Triton, Sageattentionもそれに対応するものにアップデート
-- 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から67372a版に変更
+- 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から~~67372a版~~[hirorohi03版](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更
 - 拡張機能を追加
 	- [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one)
 	- [model-keyword](https://github.com/mix1009/model-keyword)
 	- [sd-webui-cutoff](https://github.com/hnmr293/sd-webui-cutoff)
 	- [sd-webui-enable-checker](https://github.com/shirayu/sd-webui-enable-checker)
  	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)
-- ~~SpectrumのStable Diffusion WebUI Forge Neoでの実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）~~ **→ [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を使用してください**
-- ~~標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）~~ **→ 環境によっては黒画像が生成されてしまうという報告があったためオプションは削除しました**
+- ~~SpectrumのStable Diffusion WebUI Forge Neoでの実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）~~<BR>
+**→ Sepectrumを使用する場合は[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を使用してください**
+- ~~標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）~~<BR>
+**→ 環境によっては黒画像が生成されてしまうという報告があったためオプションなしに戻しました**
 - reForge本体のソースコードパッチによるControlNet Preprocessorの削除
     - inpaint_only_noobai_xl+lama
 	- inpaint_only_noobai_xl
@@ -46,29 +48,28 @@ EasyReforge-Next インストール先にある以下いずれかのバッチを
 - `Reforge.bat`：起動オプションなしの標準設定で起動します。
 - `Reforge_Fast.bat`：sageattention等を有効にして起動します。画像生成時間が約10%削減します。ただし環境によっては黒画像しか生成されなくなる場合がありますので、その場合は `Reforge.bat` を使用してください。
 - 自作バッチ：自分で自由に起動オプションを指定したい場合は、`Reforge_Fast.bat` を任意のファイル名でコピーして、ファイルの内容を書き換えて利用してください。コピーせずに既存のファイルの内容を書き換えて利用すると、EasyReforge-Next の更新時に巻き戻ってしまいます。<br>
-	- 参考ですが、--allow-fp16-accumulation オプションで計算精度を低くして生成時間を約10%削減することも可能です（sageattentionとの合計て約20%削減）。
+	- 参考ですが、`--allow-fp16-accumulation` オプションで計算精度を低くして生成時間を約10%削減することも可能です（sageattentionとの合計て約20%削減）。
 
 ## 更新方法
 
 - `Update.bat` で EasyReforge-Next を更新します。
 	- 更新で問題が発生したら『[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)』へ。
-- `Update.bat` 実行時、赤い文字で以下のエラーメッセージが出力されますがとりあえず無視してください。途中で止まってしまった場合は `Update.bat` を再実行すると問題なく最後まで実行できると思います。<p>
+- `Update.bat` 実行時、赤い文字で以下のエラーメッセージが出力された場合はとりあえず無視してください。途中で止まってしまった場合は `Update.bat` を再実行すると問題なく最後まで実行できると思います。<p>
 `ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.`<br>
 `tensorflow 2.21.0 requires protobuf<8.0.0,>=6.31.1, but you have protobuf 3.20.0 which is incompatible.`<p>
-	- `protobuf` というライブラリについて、WD14-Taggerが前提とするバージョンよりもreForgeの前提が低いことが原因です。本家reForgeでも抱えている問題ですが、WD14-Taggerの動作には問題ないはずです。<br>
-EasyReforgeではreForgeのファイルを差し替えて `protobuf` のバージョンを上げることで対策していましたが、EasyReforge-Nextの対策方法は検討中です。
+	- この問題は[2026/4/6の更新](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#202646)で修正されているはずですので、そちらを参照して対策してください。
 
 ## reForge本体のバージョン指定方法
 
 2つのバッチでreForge本体のバージョンを指定／解除することができます。<BR>
 reForge本体はリリースやバージョンタグを付けていないため、Gitの**コミットハッシュ値**で指定します。
 - `EasyReforge\ReforgeVersionControl-Enable.bat`<BR>
-reForge本体のコミットハッシュ値を入力して指定（入力内容の`EasyReforge\Reforge_Version.txt`を生成）
+reForge本体のコミットハッシュ値を入力して指定（入力内容の`EasyReforge\Reforge_Version.txt`が生成される）
 - `EasyReforge\ReforgeVersionControl-Disable.bat`<BR>
-reForge本体のバージョン指定を解除（`EasyReforge\Reforge_Version.txt`を削除）
+reForge本体のバージョン指定を解除（`EasyReforge\Reforge_Version.txt`が削除される）
 
 バージョンを変更する場合は `Update.bat` を実行してください。<BR>
-reForge本体の**コミットハッシュ値**は、下図を参考にして[reForge本体のコミットログ](https://github.com/Panchovix/stable-diffusion-webui-reForge/commits/main/)からコピー＆ペーストしてください。
+reForge本体の**コミットハッシュ値**は、下図を参考にして[reForge本体のコミットログ](https://github.com/Panchovix/stable-diffusion-webui-reForge/commits/main/)からコピー＆ペーストしてください。<P>
 ![CommitHash](/Sample/Images_README/commit_hash.png) 
 
 ## オリジナルのEasyReforgeからのアップデートや移行について
@@ -93,8 +94,9 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
-### 2026/4/20
+### 2026/4/6
 
+<<<<<<< HEAD
 - [追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。
 	- 2026/4/22追記：APIアクセスは .com でもすべてのコンテンツにアクセスできるため変更不要でした。戻すのは面倒で支障もないので .red のままにしておきます。
 - Civitai から削除されているモデルのダウンロードバッチを削除しました。
@@ -103,6 +105,16 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 	- [Download\Lora\NoobE_Style\DoujinshiBooba.bat](https://civarchive.com/models/142674)
 	- [Download\Stable-diffusion\NoobE\plumMix_v10.bat](https://civarchive.com/models/1575671?modelVersionId=1783043)
 	- [Download\VAE\Sdxl\AaaAnime_v15.bat](https://civarchive.com/models/888145?modelVersionId=1042046)
+=======
+- 既存の `wd14-tagger` は、`protobuf` というPythonライブラリに対するバージョン要求がreForgeの要求と不整合になっており、`Update.bat` 実行時などにエラーメッセージが出力されていたため、hirorohi03が修正した [`wd14-tagger`](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更しました。
+	- 既に不整合になっているPythonライブラリは自動で回復しませんので、[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)に記載のとおり、`venv` を削除＆再作成してください。
+	- `venv` は7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に `Update.bat` を実行してください。
+```
+pip uninstall deepdanbooru
+pip uninstall tensorflow
+pip uninstall opencv_python_headless
+```
+>>>>>>> parent of 75fb38c (civitai.com to civitai.red)
 
 ### 2026/4/5
 
@@ -110,7 +122,9 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 ### 2026/4/3
 
-- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated (sd_forge_spectrum)の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。既にインストール済みのSpectrum Integratedは自動で削除されませんので、不要な場合はユーザー自身でエクスプローラー等を使ってstable-diffusion-webui-reForge\extensions-builtin\sd_forge_spectrumをフォルダごと削除してください。
+- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated ([sd_forge_spectrum](https://github.com/Haoming02/sd-webui-forge-classic/tree/ae4e34e2fcf38eb64f77892bdc941b2444e5eaf3/extensions-builtin/sd_forge_spectrum))の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。
+	- 既にインストール済みのSpectrum Integratedは自動で削除されませんので、不要な場合はユーザー自身でエクスプローラー等を使ってstable-diffusion-webui-reForge\extensions-builtin\sd_forge_spectrumをフォルダごと削除してください。
+	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)は品質が低いという報告もありますので、気になる場合はSpectrum Integratedを残しておくか、既にSpectrum Integratedを削除してしまった場合は[sd-webui-reforge-spectrum](https://github.com/wai55555/sd-webui-reforge-spectrum)を試してみてください。
 
 ### 2026/3/26
 
@@ -124,7 +138,7 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 # EasyReforge
 
 [reForge](https://github.com/Panchovix/stable-diffusion-webui-reForge) でお手軽に高速画像生成する EasyReforge です。  
-[NoobAi](https://civitai.red/models/833294) の Epsilon-Prediction 版 ( **NoobE** ) と V-Prediction 版 ( **NoobV** ) を主に扱います。
+[NoobAi](https://civitai.com/models/833294) の Epsilon-Prediction 版 ( **NoobE** ) と V-Prediction 版 ( **NoobV** ) を主に扱います。
 
 - ワンクリックインストール
 - Geforce RTX 3060 VRAM 12GB で FullHD を 10秒で生成するプリセット
@@ -195,13 +209,13 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 	- `<lora:NoobEStylesDump:1> __NoobEStylesDump__`: スタイル LoRA とトリガーワイルドカード。V-Pred なら NoobE を NoobV にします。
 	- `<lora:NoobEStylesCollection:1> __NoobStylesCollection__`: スタイル LoRA とトリガーワイルドカード。V-Pred なら NoobE を NoobV にします。
 - `Download/` 直下の `bat` では追加データを一式ダウンロードできます。
-	- `NoobAiEpsilonPred`, `NoobAiVPred`: [NoobAi](https://civitai.red/models/833294) の Epsilon-Prediction 版、V-Prediction 版の関連ファイルをダウンロードします。最初は扱いが簡単な `NoobAiEpsilonPred` がオススメです。
+	- `NoobAiEpsilonPred`, `NoobAiVPred`: [NoobAi](https://civitai.com/models/833294) の Epsilon-Prediction 版、V-Prediction 版の関連ファイルをダウンロードします。最初は扱いが簡単な `NoobAiEpsilonPred` がオススメです。
 	- `Minimum`: 画像生成ができる最低限の関連ファイルをダウンロードします。`Minimum` のみ、下記の Civitai キー設定をしなくてもダウンロードできます。
 	- `Standard`: `Minimum` に加えて、モデル以外の標準的な関連ファイルをダウンロードします。LoRA や ADetailer 検出モデルや Wildcard など、容量に対して効果が大きいモノが多いため、Civitai キーを登録してのダウンロードを推奨します。
 	- `StandardModels`: `Standard` に加えて、合計 100GB 以下の定番オススメモデルをダウンロードします。
 	- `All`: すべての関連ファイルをダウンロードします。
 	- サブフォルダの `bat` で個別のダウンロードもできます。
-	- モデルや LoRA は日々新しいモノが公開されますので、[Civitai](https://civitai.red/) で気になったモノを `Civitai Helper` でダウンロードしたり、`Civitai Helper Browser` で直接ダウンロードしてください（Civitai キー設定が必要）。
+	- モデルや LoRA は日々新しいモノが公開されますので、[Civitai](https://civitai.com/) で気になったモノを `Civitai Helper` でダウンロードしたり、`Civitai Helper Browser` で直接ダウンロードしてください（Civitai キー設定が必要）。
 
 ### 他の環境とのリソース共有
 
