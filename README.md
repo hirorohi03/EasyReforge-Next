@@ -74,11 +74,8 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 ## オリジナルのEasyReforgeからのアップデートや移行について
 
-現時点ではオリジナルのEasyReforgeからのアップデートや移行はサポートしていません。
-- ほとんどの資産はModelとOutputReforge以下に格納されており、単純にコピーすればよいです。
-- 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
-
-とりあえず、[私のnote](https://note.com/hirorohi03)でWebUI間の移行についての解説記事を記載する予定です。
+オリジナルのEasyReforgeから移行する手順は以下のnote記事を参考にしてください。
+- [EasyReforgeからEasyReforge-Nextへの移行手順](https://note.com/hirorohi03/n/ndebb4e64a9e9)
 
 ## 注意事項
 
