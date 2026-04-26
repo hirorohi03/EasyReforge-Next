@@ -93,8 +93,7 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 ### 2026/4/20
 
-- ~~[追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。~~
-	- **2026/4/22：API経由の場合は従来のcivitai.comでも全コンテンツにアクセス可能であることが判明したためこの変更は取り消しました。**
+- [追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。なおEasyReforgeリポジトリで関係するのはコメントのみであり、主処理はEasyToolsリポジトリにあります。
 - Civitai から削除されているモデルのダウンロードバッチを削除しました。
 	- Download\Lora\Illu_Char\Takopī_no_Genzai.bat
 	- [Download\Lora\NoobE_Char\Medalist_v10.bat](https://civarchive.com/models/1198597?modelVersionId=1349662)
