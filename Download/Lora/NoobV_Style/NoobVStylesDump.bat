@@ -4,7 +4,7 @@ set EASY_TOOLS=%~dp0..\..\..\EasyTools
 set CIVITAI_MODEL=%EASY_TOOLS%\Download\CivitaiModel.bat
 pushd %~dp0..\..\..\Model\Lora
 
-@REM https://civitai.com/models/723360?modelVersionId=1047814
+@REM https://civitai.red/models/723360?modelVersionId=1047814
 call %CIVITAI_MODEL% NoobV\ NoobVStylesDump.safetensors 723360 1047814
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
